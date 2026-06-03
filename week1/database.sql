@@ -1,0 +1,21 @@
+CREATE DATABASE IF NOT EXISTS la_maison_luxe;
+USE la_maison_luxe;
+
+CREATE TABLE IF NOT EXISTS customers (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(80) NOT NULL,
+    phone VARCHAR(30) NOT NULL,
+    email VARCHAR(120) NOT NULL,
+    gender VARCHAR(30) NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS orders (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    customer_id INT NOT NULL,
+    meal_name VARCHAR(120) NOT NULL,
+    order_comment TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (customer_id) REFERENCES customers(id) ON DELETE CASCADE
+);
