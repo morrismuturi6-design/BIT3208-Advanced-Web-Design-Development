@@ -1,0 +1,313 @@
+:root {
+    --ink: #171512;
+    --cream: #fff8ec;
+    --gold: #c9953c;
+    --wine: #73213f;
+    --leaf: #2f5d50;
+    --coal: #25201b;
+    --white: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    color: var(--ink);
+    background:
+        linear-gradient(135deg, rgba(115, 33, 63, 0.08) 25%, transparent 25%) 0 0 / 32px 32px,
+        linear-gradient(225deg, rgba(47, 93, 80, 0.08) 25%, transparent 25%) 0 0 / 32px 32px,
+        var(--cream);
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; width: 100%; }
+
+.entry-page {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 32px;
+    background:
+        linear-gradient(rgba(23, 21, 18, 0.5), rgba(23, 21, 18, 0.75)),
+        url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1800&q=80") center / cover;
+}
+
+.entry-shell {
+    width: min(1100px, 100%);
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: rgba(255, 248, 236, 0.94);
+}
+
+.entry-copy {
+    min-height: 620px;
+    padding: 72px;
+    color: var(--white);
+    background:
+        linear-gradient(rgba(23, 21, 18, 0.42), rgba(23, 21, 18, 0.72)),
+        url("https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=1200&q=80") center / cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.entry-copy h1, .hero h1, .detail-copy h1, .message-box h1 {
+    margin: 0;
+    font-size: clamp(2.8rem, 7vw, 6.4rem);
+    line-height: 0.9;
+    max-width: 720px;
+}
+
+.entry-copy p, .hero p, .section-heading p, .detail-copy p, .message-box p {
+    font-family: Arial, sans-serif;
+    line-height: 1.7;
+}
+
+.eyebrow {
+    margin: 0 0 14px;
+    color: var(--gold);
+    font-family: Arial, sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+.pattern-strip {
+    width: 180px;
+    height: 12px;
+    margin-top: 32px;
+    background: repeating-linear-gradient(90deg, var(--gold), var(--gold) 18px, var(--wine) 18px, var(--wine) 36px, var(--leaf) 36px, var(--leaf) 54px);
+}
+
+.login-panel { padding: 64px 52px; align-self: center; }
+
+.login-panel h2, .section-heading h2, .quality-band h2 {
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 3.3rem);
+    line-height: 1;
+}
+
+form { margin-top: 28px; }
+
+label {
+    display: block;
+    margin: 18px 0 8px;
+    font-family: Arial, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+input, select, textarea {
+    width: 100%;
+    border: 1px solid rgba(23, 21, 18, 0.22);
+    background: var(--white);
+    color: var(--ink);
+    font: 1rem Arial, sans-serif;
+    padding: 14px 16px;
+    outline-color: var(--gold);
+}
+
+.field-error {
+    display: block;
+    min-height: 18px;
+    margin-top: 6px;
+    color: #b00020;
+    font: 700 0.78rem Arial, sans-serif;
+}
+
+.password-meter {
+    height: 9px;
+    margin-top: 10px;
+    overflow: hidden;
+    background: rgba(23, 21, 18, 0.12);
+}
+
+.password-meter span {
+    display: block;
+    width: 20%;
+    height: 100%;
+    background: #b00020;
+    transition: width 0.25s ease, background 0.25s ease;
+}
+
+.password-meter span.fair { background: #c9953c; }
+.password-meter span.good { background: #7f8f32; }
+.password-meter span.strong,
+.password-meter span.excellent { background: var(--leaf); }
+
+.password-hint {
+    margin: 8px 0 0;
+    color: rgba(23, 21, 18, 0.72);
+    font: 0.84rem/1.5 Arial, sans-serif;
+}
+
+button, .hero-button, .meal-hover a, .message-box a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    margin-top: 22px;
+    border: 0;
+    background: var(--wine);
+    color: var(--white);
+    font: 700 0.9rem Arial, sans-serif;
+    padding: 0 22px;
+    cursor: pointer;
+}
+
+button:hover, .hero-button:hover, .meal-hover a:hover, .message-box a:hover { background: var(--leaf); }
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    padding: 18px clamp(20px, 5vw, 72px);
+    background: rgba(255, 248, 236, 0.94);
+    border-bottom: 1px solid rgba(23, 21, 18, 0.12);
+    backdrop-filter: blur(12px);
+}
+
+.brand { color: var(--wine); font-size: 1.35rem; font-weight: 700; }
+nav { display: flex; gap: 18px; font: 700 0.86rem Arial, sans-serif; }
+
+.hero {
+    min-height: 76vh;
+    display: flex;
+    align-items: end;
+    padding: 0 clamp(20px, 5vw, 72px) 64px;
+    color: var(--white);
+    background:
+        linear-gradient(90deg, rgba(23, 21, 18, 0.84), rgba(23, 21, 18, 0.18)),
+        url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&q=80") center / cover;
+}
+
+.hero-content { max-width: 720px; }
+
+.quality-band {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: var(--coal);
+    color: var(--cream);
+}
+
+.quality-band article {
+    padding: 36px clamp(20px, 4vw, 48px);
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.quality-band span { color: var(--gold); font: 700 0.85rem Arial, sans-serif; }
+.quality-band p, .meal-info p, .meal-hover p, footer p { font-family: Arial, sans-serif; line-height: 1.55; }
+
+.menu-section { padding: 78px clamp(20px, 5vw, 72px); }
+.section-heading { max-width: 720px; margin-bottom: 34px; }
+
+.meal-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.meal-card {
+    position: relative;
+    min-height: 430px;
+    overflow: hidden;
+    background: var(--coal);
+}
+
+.meal-card img {
+    height: 100%;
+    min-height: 430px;
+    object-fit: cover;
+    transition: transform 0.45s ease;
+}
+
+.meal-info, .meal-hover {
+    position: absolute;
+    inset: auto 0 0;
+    padding: 26px;
+    color: var(--white);
+}
+
+.meal-info { background: linear-gradient(transparent, rgba(0, 0, 0, 0.82)); }
+.meal-info h3, .meal-hover h3 { margin: 6px 0; font-size: 1.75rem; }
+.meal-info span { color: var(--gold); font: 700 1rem Arial, sans-serif; }
+
+.meal-hover {
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    background: rgba(37, 32, 27, 0.9);
+    opacity: 0;
+    transform: translateY(18px);
+    transition: 0.3s ease;
+}
+
+.meal-card:hover img { transform: scale(1.08); }
+.meal-card:hover .meal-hover { opacity: 1; transform: translateY(0); }
+
+.detail-layout {
+    min-height: calc(100vh - 70px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.detail-image img { height: 100%; min-height: 640px; object-fit: cover; }
+
+.detail-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(32px, 6vw, 84px);
+    background:
+        linear-gradient(135deg, rgba(201, 149, 60, 0.12) 25%, transparent 25%) 0 0 / 28px 28px,
+        var(--cream);
+}
+
+.detail-copy .price { color: var(--wine); font-weight: 700; }
+.order-form { max-width: 620px; }
+
+.message-page {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+}
+
+.message-box {
+    width: min(720px, 100%);
+    padding: 56px;
+    background: var(--white);
+    border: 1px solid rgba(23, 21, 18, 0.14);
+}
+
+footer {
+    padding: 28px;
+    text-align: center;
+    background: var(--wine);
+    color: var(--white);
+}
+
+@media (max-width: 900px) {
+    .entry-shell, .detail-layout, .quality-band, .meal-grid { grid-template-columns: 1fr; }
+    .entry-copy { min-height: 420px; padding: 42px; }
+    .login-panel { padding: 42px; }
+    .detail-image img { min-height: 360px; }
+}
+
+@media (max-width: 560px) {
+    .entry-page { padding: 14px; }
+    .site-header { align-items: flex-start; flex-direction: column; }
+    nav { flex-wrap: wrap; }
+    .entry-copy, .login-panel, .message-box { padding: 28px; }
+    .hero { min-height: 72vh; }
+    .meal-card, .meal-card img { min-height: 360px; }
+}
